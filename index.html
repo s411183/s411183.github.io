@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sam | 個人自我介紹與精選履歷</title>
+  <meta name="description" content="Sam 的個人自我介紹與履歷網頁 — 結合極簡質感美學，完整呈現個人特質、專長技能、日常興趣與實踐成果。">
+
+  <!-- Google Fonts: 日系無印質感字體 (Noto Sans TC、Zen Maru Gothic、Shippori Mincho) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Shippori+Mincho:wght@500;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================================
+       1. 日系無印風・主題與色彩系統 (Japanese Minimalist Muji Style)
+       ========================================================= */
+    :root {
+      /* 主色：茶苔綠 (Matcha / Moss Green) */
+      --primary: #4a6851;
+      --primary-hover: #3b5340;
+      --primary-light: #eef3ef;
+      --primary-border: #cbdad0;
+
+      /* 輔助色：暖陶土 / 木質色 (Warm Wood & Terracotta) */
+      --accent: #ba7048;
+      --accent-light: #fbf1eb;
+
+      /* 背景與卡片：溫潤米白與和紙質感 */
+      --bg: #f8f6f0;
+      --bg-card: #ffffff;
+      --bg-card-subtle: #f3f0e8;
+
+      /* 文字墨色：炭黑與淡墨 */
+      --text-main: #272d28;
+      --text-muted: #6b756d;
+      --text-subtle: #98a19a;
+
+      /* 邊框與陰影：極細淡邊框，柔和自然陰影 */
+      --border-color: #e5e0d4;
+      --border-subtle: rgba(74, 104, 81, 0.12);
+      --shadow-soft: 0 4px 20px rgba(45, 52, 47, 0.04);
+      --shadow-hover: 0 10px 30px rgba(45, 52, 47, 0.08);
+
+      /* 圓角弧度：日系溫潤小圓角 */
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+
+      /* 過渡動效 */
+      --transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    /* 和風深夜模式 (Sumi Ink Dark Mode) */
+    [data-theme="dark"] {
+      --bg: #181c19;
+      --bg-card: #202622;
+      --bg-card-subtle: #272f2a;
+      --text-main: #f0f2ef;
+      --text-muted: #a6b0a8;
+      --text-subtle: #6c786e;
+      --primary: #86ab8e;
+      --primary-hover: #9fbeA6;
+      --primary-light: rgba(134, 171, 142, 0.12);
+      --primary-border: rgba(134, 171, 142, 0.28);
+      --accent: #d89069;
+      --accent-light: rgba(216, 144, 105, 0.15);
+      --border-color: #2e3831;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.25);
+      --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    /* =========================================================
+       2. 基礎設定與字體
+       ========================================================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Zen Maru Gothic', 'Noto Sans TC', sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.85;
+      letter-spacing: 0.03em;
+      position: relative;
+      overflow-x: hidden;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    /* 輕柔日式和紙底紋光暈 */
+    .bg-pattern {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+      background-image: radial-gradient(var(--border-color) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 28px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* =========================================================
+       3. 導覽列 (Navbar)
+       ========================================================= */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(248, 246, 240, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      transition: var(--transition);
+    }
+    [data-theme="dark"] .navbar {
+      background: rgba(24, 28, 25, 0.88);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+    .logo-stamp {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: var(--primary);
+      color: #ffffff;
+      font-family: 'Shippori Mincho', serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      border-radius: var(--radius-sm);
+      box-shadow: 0 2px 8px rgba(74, 104, 81, 0.25);
+    }
+    .logo-name {
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: 0.05em;
+    }
+    .logo-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-left: -4px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: 24px;
+    }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+      padding: 4px 2px;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: var(--transition);
+      transform: translateX(-50%);
+    }
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .theme-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 7px 14px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      font-size: 0.88rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+    .theme-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    /* =========================================================
+       4. Hero 英雄區塊 (自我介紹)
+       ========================================================= */
+    .hero {
+      padding: 85px 0 65px;
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .hero-greeting {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary-light);
+      color: var(--primary);
+      border: 1px solid var(--primary-border);
+      padding: 5px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .hero-greeting-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--primary);
+      border-radius: 50%;
+    }
+
+    .hero-name {
+      font-family: 'Shippori Mincho', 'Noto Sans TC', serif;
+      font-size: clamp(2.3rem, 5vw, 3.4rem);
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+      color: var(--text-main);
+    }
+    .hero-name .jp-mark {
+      font-size: 0.45em;
+      font-family: 'Zen Maru Gothic', sans-serif;
+      color: var(--accent);
+      vertical-align: super;
+      font-weight: 500;
+      margin-left: 6px;
+    }
+
+    .hero-tagline {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      font-weight: 400;
+      line-height: 1.8;
+      border-left: 3px solid var(--primary);
+      padding-left: 16px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .hero-meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 24px;
+      border-radius: var(--radius-sm);
+      font-size: 0.92rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+      border: 1px solid var(--primary);
+      box-shadow: 0 4px 12px rgba(74, 104, 81, 0.2);
+    }
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(74, 104, 81, 0.28);
+    }
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+    .btn-secondary:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: var(--primary-light);
+      transform: translateY(-2px);
+    }
+
+    /* 形象卡片 (純和風頭像展示) */
+    .hero-avatar-box {
+      display: flex;
+      justify-content: center;
+    }
+    .avatar-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      text-align: center;
+      width: 100%;
+      max-width: 290px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      transition: var(--transition);
+    }
+    .avatar-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+    .avatar-circle {
+      width: 110px;
+      height: 110px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-light) 0%, var(--bg-card-subtle) 100%);
+      border: 2px dashed var(--primary-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.8rem;
+      color: var(--primary);
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.03);
+    }
+    .avatar-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .avatar-subtitle {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+    .avatar-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      background: var(--bg-card-subtle);
+      border-radius: var(--radius-full);
+      font-size: 0.78rem;
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    /* =========================================================
+       5. 通用章節標題
+       ========================================================= */
+    .section {
+      padding: 55px 0;
+    }
+    .section-header {
+      margin-bottom: 36px;
+      text-align: left;
+      position: relative;
+    }
+    .section-japanese {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 0.85rem;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      font-weight: 700;
+      margin-bottom: 4px;
+      display: block;
+    }
+    .section-title {
+      font-family: 'Shippori Mincho', 'Noto Sans TC', serif;
+      font-size: 1.85rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--text-main);
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+    .section-title-en {
+      font-family: 'Zen Maru Gothic', sans-serif;
+      font-size: 0.88rem;
+      color: var(--text-subtle);
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .section-line {
+      width: 48px;
+      height: 2px;
+      background: var(--primary);
+      margin-top: 10px;
+    }
+
+    /* 卡片通用樣式 */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 26px;
+      box-shadow: var(--shadow-soft);
+      transition: var(--transition);
+      position: relative;
+    }
+    .card:hover {
+      border-color: var(--primary-border);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    /* =========================================================
+       6. 興趣（3個） (Hobbies / 興味・趣味)
+       ========================================================= */
+    .interests-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .interest-card {
+      display: flex;
+      flex-direction: column;
+    }
+    .interest-badge {
+      align-self: flex-start;
+      font-size: 0.75rem;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+    .interest-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      line-height: 1;
+    }
+    .interest-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+    .interest-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* =========================================================
+       7. 技能專區 (擅長 / 想學) (Skills / 技術・学び)
+       ========================================================= */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .skill-card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-main);
+    }
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .skill-pill {
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 7px 15px;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .skill-pill:hover {
+      background: var(--primary-light);
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+    .skill-pill.learning {
+      background: #ffffff;
+      border: 1px dashed var(--accent);
+      color: var(--accent);
+    }
+    [data-theme="dark"] .skill-pill.learning {
+      background: var(--bg-card);
+    }
+    .skill-pill.learning:hover {
+      background: var(--accent-light);
+      transform: translateY(-2px);
+    }
+
+    /* =========================================================
+       8. 作品與活動經歷 (Works & Activities / 作品・活動)
+       ========================================================= */
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .work-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .work-category {
+      font-size: 0.75rem;
+      color: var(--primary);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .work-heading {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text-main);
+      font-family: 'Shippori Mincho', 'Noto Sans TC', serif;
+    }
+    .work-description {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+    .work-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-color);
+      font-size: 0.82rem;
+      color: var(--text-subtle);
+    }
+    .work-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: var(--transition);
+    }
+    .work-link:hover {
+      color: var(--accent);
+      gap: 8px;
+    }
+
+    /* =========================================================
+       9. 聯絡方式 (Contact / お問い合わせ)
+       ========================================================= */
+    .contact-box {
+      text-align: center;
+      padding: 48px 30px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+    }
+    .contact-seal {
+      width: 44px;
+      height: 44px;
+      margin: 0 auto 16px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+    }
+    .contact-title {
+      font-family: 'Shippori Mincho', 'Noto Sans TC', serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .contact-text {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      max-width: 520px;
+      margin: 0 auto 26px;
+    }
+    .contact-socials {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+    .social-link {
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+    .social-link:hover {
+      background: var(--primary-light);
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    /* 頁尾 */
+    .footer {
+      padding: 40px 0;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-subtle);
+      border-top: 1px solid var(--border-color);
+      margin-top: 50px;
+    }
+
+    /* =========================================================
+       10. 捲動淡入動態效果 (Fade-in Animations)
+       ========================================================= */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+      will-change: opacity, transform;
+    }
+    .scroll-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .delay-1 { transition-delay: 0.12s; }
+    .delay-2 { transition-delay: 0.24s; }
+    .delay-3 { transition-delay: 0.36s; }
+
+    /* =========================================================
+       11. 響應式佈局 (Mobile & Desktop RWD)
+       ========================================================= */
+    @media (max-width: 820px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 50px 0 40px;
+        gap: 36px;
+      }
+      .hero-tagline {
+        border-left: none;
+        border-top: 2px solid var(--primary);
+        padding-left: 0;
+        padding-top: 14px;
+        margin: 0 auto 20px;
+      }
+      .hero-meta {
+        justify-content: center;
+      }
+      .hero-cta {
+        justify-content: center;
+      }
+      .interests-grid,
+      .skills-grid,
+      .works-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        gap: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 20px;
+      }
+      .hero-name {
+        font-size: 2.1rem;
+      }
+      .btn {
+        width: 100%;
+      }
+      .nav-links a {
+        font-size: 0.85rem;
+      }
+      .theme-btn span:last-child {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 和紙點陣背景裝飾 -->
+  <div class="bg-pattern" aria-hidden="true"></div>
+
+  <!-- 導覽列 -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="logo">
+        <span class="logo-stamp">山</span>
+        <div>
+          <span class="logo-name">Sam</span>
+          <span class="logo-sub">・個人履歷</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">關於我</a></li>
+        <li><a href="#interests">日常興趣</a></li>
+        <li><a href="#skills">專長技能</a></li>
+        <li><a href="#works">作品經歷</a></li>
+        <li><a href="#contact">聯絡我</a></li>
+        <li>
+          <button class="theme-btn" id="themeToggle" title="切換深色/淺色模式" aria-label="切換主題">
+            <span id="themeIcon">🍵</span>
+            <span id="themeLabel">淺色</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 1. Hero 區塊：自我介紹 -->
+  <header class="container hero" id="about">
+    <div class="hero-content scroll-reveal">
+      <div class="hero-greeting">
+        <span class="hero-greeting-dot"></span>
+        <span>自我介紹・歡迎造訪</span>
+      </div>
+      <h1 class="hero-name">
+        你好，我是 Sam <span class="jp-mark">山姆</span>
+      </h1>
+
+      <!-- 一句話介紹自己 (可自由替換內容) -->
+      <p class="hero-tagline">
+        「崇尚極簡與溫潤質感，熱衷於將生活靈感淬鍊成兼具美感與實用性的數位體驗。」
+      </p>
+
+      <!-- 快速標籤資訊 -->
+      <div class="hero-meta">
+        <span class="hero-meta-item">📍 台灣 / 可遠端協作</span>
+        <span class="hero-meta-item">🌱 狀態：持續學習與探索</span>
+        <span class="hero-meta-item">🍵 風格：日系極簡・純粹自然</span>
+      </div>
+
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">與我聯絡 ✉️</a>
+        <a href="#works" class="btn btn-secondary">瀏覽作品與經歷 🍃</a>
+      </div>
+    </div>
+
+    <!-- 個人形象小卡片 -->
+    <div class="hero-avatar-box scroll-reveal delay-1">
+      <div class="avatar-card">
+        <div class="avatar-circle">
+          <span>S</span>
+        </div>
+        <h2 class="avatar-title">Sam</h2>
+        <p class="avatar-subtitle">創作者 ＆ 終身學習者</p>
+        <span class="avatar-tag">簡約・踏實・持續累積</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. 興趣專區（3 個） -->
+  <section class="section container" id="interests">
+    <div class="section-header scroll-reveal">
+      <span class="section-japanese">個人興趣</span>
+      <h2 class="section-title">
+        日常的微小熱情 <span class="section-title-en">興趣愛好</span>
+      </h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="interests-grid">
+      <!-- 興趣 1 -->
+      <div class="card interest-card scroll-reveal delay-1">
+        <span class="interest-badge">第一項</span>
+        <div class="interest-icon">🍵</div>
+        <h3 class="interest-name">手沖茶品與生活靜心</h3>
+        <p class="interest-text">
+          在清晨或工作空檔沖一壺茶，專注於水溫與香氣的流動，在快節奏生活中保持平靜與敏銳觀察。
+        </p>
+      </div>
+
+      <!-- 興趣 2 -->
+      <div class="card interest-card scroll-reveal delay-2">
+        <span class="interest-badge">第二項</span>
+        <div class="interest-icon">📷</div>
+        <h3 class="interest-name">街頭攝影與光影紀錄</h3>
+        <p class="interest-text">
+          漫步於日常街角，透過鏡頭捕捉光影交會與生活留白，培養對色彩平衡與自然構圖的感知。
+        </p>
+      </div>
+
+      <!-- 興趣 3 -->
+      <div class="card interest-card scroll-reveal delay-3">
+        <span class="interest-badge">第三項</span>
+        <div class="interest-icon">💻</div>
+        <h3 class="interest-name">程式創作與工具探索</h3>
+        <p class="interest-text">
+          喜歡用純粹的代碼雕琢乾淨俐落的介面，隨時關注並動手嘗試有設計感、能增進生產力的開源工具。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. 技能專區：擅長與想學 -->
+  <section class="section container" id="skills">
+    <div class="section-header scroll-reveal">
+      <span class="section-japanese">技術養成</span>
+      <h2 class="section-title">
+        技能與學習清單 <span class="section-title-en">能力專長</span>
+      </h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="skills-grid">
+      <!-- 擅長技能 -->
+      <div class="card scroll-reveal delay-1">
+        <h3 class="skill-card-title">
+          <span>🌿</span> 擅長技能（已熟練掌握）
+        </h3>
+        <div class="skill-list">
+          <span class="skill-pill">HTML5 語意化結構</span>
+          <span class="skill-pill">現代 CSS / 排版佈局</span>
+          <span class="skill-pill">手機與電腦響應式設計</span>
+          <span class="skill-pill">JavaScript 邏輯開發</span>
+          <span class="skill-pill">日系極簡視覺設計</span>
+          <span class="skill-pill">Git 版本控制協作</span>
+        </div>
+      </div>
+
+      <!-- 想學與探索中的技能 -->
+      <div class="card scroll-reveal delay-2">
+        <h3 class="skill-card-title">
+          <span>🌱</span> 想學與探索中（持續精進）
+        </h3>
+        <div class="skill-list">
+          <span class="skill-pill learning">現代前端框架 (React / Vue)</span>
+          <span class="skill-pill learning">TypeScript 嚴謹型別設計</span>
+          <span class="skill-pill learning">AI 輔助開發與提示工程</span>
+          <span class="skill-pill learning">極簡無頭內容管理系統</span>
+          <span class="skill-pill learning">網頁微動態交互特效</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 做過的作品或參加過的活動 -->
+  <section class="section container" id="works">
+    <div class="section-header scroll-reveal">
+      <span class="section-japanese">精選經歷</span>
+      <h2 class="section-title">
+        作品與活動 <span class="section-title-en">實踐成果</span>
+      </h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="works-grid">
+      <!-- 項目 1 -->
+      <div class="card work-card scroll-reveal delay-1">
+        <div>
+          <div class="work-category">個人專案 / 自主開發</div>
+          <h3 class="work-heading">極簡風個人履歷展示頁</h3>
+          <p class="work-description">
+            堅持少即是多的極簡美學，全站使用單一 HTML 檔案封裝，無任何外部肥大框架，透過 CSS 變數實踐日系無印與和風深夜模式切換，極速秒開載入。
+          </p>
+        </div>
+        <div class="work-footer">
+          <span>純原生前端技術開發</span>
+          <a href="#" class="work-link">檢視詳情 →</a>
+        </div>
+      </div>
+
+      <!-- 項目 2 -->
+      <div class="card work-card scroll-reveal delay-2">
+        <div>
+          <div class="work-category">社群交流 / 工作坊活動</div>
+          <h3 class="work-heading">設計與開源技術交流活動</h3>
+          <p class="work-description">
+            參與設計與工程跨領域交流活動，與同好探討如何結合自然美感與數位科技，定期分享實戰心得與筆記。
+          </p>
+        </div>
+        <div class="work-footer">
+          <span>團隊協作 / 知識共享</span>
+          <a href="#" class="work-link">活動紀錄 →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. 聯絡方式 -->
+  <section class="section container" id="contact">
+    <div class="contact-box scroll-reveal">
+      <div class="contact-seal">信</div>
+      <h2 class="contact-title">期待與你相遇交流</h2>
+      <p class="contact-text">
+        如果您有感興趣的合作機會、專案討論，或者只是想交換生活與技術想法，歡迎隨時來信！
+      </p>
+
+      <a href="mailto:sam@example.com" class="btn btn-primary">
+        寄信聯繫：sam@example.com ✉️
+      </a>
+
+      <!-- 社群連結 -->
+      <div class="contact-socials">
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-link">
+          <span>🐙 GitHub</span>
+        </a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link">
+          <span>💼 LinkedIn</span>
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link">
+          <span>📸 Instagram</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 頁尾 -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Sam. 個人自我介紹與履歷網頁。</p>
+      <p style="font-size: 0.78rem; margin-top: 4px; color: var(--text-subtle);">
+        純原生 HTML 與 CSS 打造 • 支援手機與電腦瀏覽
+      </p>
+    </div>
+  </footer>
+
+  <!-- =========================================================
+       12. 原生 JavaScript：捲動淡入動畫 + 深淺色主題切換
+       ========================================================= */
+  -->
+  <script>
+    // 1. 日系米白 / 和風深夜主題切換
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const themeLabel = document.getElementById('themeLabel');
+    const html = document.documentElement;
+
+    // 讀取快取的偏好，預設為溫潤米白 (light)
+    const currentTheme = localStorage.getItem('sam_theme_style') || 'light';
+    setTheme(currentTheme);
+
+    themeToggle.addEventListener('click', () => {
+      const activeTheme = html.getAttribute('data-theme') || 'light';
+      const targetTheme = activeTheme === 'light' ? 'dark' : 'light';
+      setTheme(targetTheme);
+    });
+
+    function setTheme(theme) {
+      html.setAttribute('data-theme', theme);
+      localStorage.setItem('sam_theme_style', theme);
+      if (theme === 'dark') {
+        themeIcon.textContent = '🌙';
+        themeLabel.textContent = '深夜';
+      } else {
+        themeIcon.textContent = '🍵';
+        themeLabel.textContent = '淺色';
+      }
+    }
+
+    // 2. 視窗捲動淡入動態效果 (IntersectionObserver)
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -50px 0px',
+      threshold: 0.12
+    };
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target); // 一旦顯示便維持，提升閱讀舒適感
+        }
+      });
+    }, observerOptions);
+
+    revealElements.forEach(el => revealObserver.observe(el));
+  </script>
+</body>
+</html>
