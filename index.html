@@ -363,18 +363,34 @@
       box-shadow: var(--shadow-hover);
     }
     .avatar-circle {
-      width: 110px;
-      height: 110px;
-      margin: 0 auto 18px;
+      width: 130px;
+      height: 130px;
+      margin: 0 auto 16px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary-light) 0%, var(--bg-card-subtle) 100%);
-      border: 2px dashed var(--primary-border);
+      border: 3px solid var(--primary-border);
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2.8rem;
-      color: var(--primary);
-      box-shadow: inset 0 2px 6px rgba(0,0,0,0.03);
+      background: var(--bg-card-subtle);
+      box-shadow: 0 4px 16px rgba(74, 104, 81, 0.12);
+      transition: var(--transition);
+    }
+    .avatar-card:hover .avatar-circle {
+      border-color: var(--primary);
+      box-shadow: 0 6px 20px rgba(74, 104, 81, 0.22);
+      transform: scale(1.03);
+    }
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 50%;
+      transition: transform 0.4s ease;
+    }
+    .avatar-card:hover .avatar-img {
+      transform: scale(1.08);
     }
     .avatar-title {
       font-size: 1.15rem;
@@ -759,7 +775,7 @@
   <nav class="navbar" id="navbar">
     <div class="container nav-inner">
       <a href="#" class="logo">
-        <span class="logo-stamp">山</span>
+        <span class="logo-stamp">🐭</span>
         <div>
           <span class="logo-name">Sam</span>
           <span class="logo-sub">・個人履歷</span>
@@ -814,11 +830,11 @@
     <div class="hero-avatar-box scroll-reveal delay-1">
       <div class="avatar-card">
         <div class="avatar-circle">
-          <span>S</span>
+          <img src="avatar.jpg" alt="Sam 的可愛版老鼠頭像" class="avatar-img">
         </div>
-        <h2 class="avatar-title">Sam</h2>
+        <h2 class="avatar-title">Sam 🐭</h2>
         <p class="avatar-subtitle">創作者 ＆ 終身學習者</p>
-        <span class="avatar-tag">簡約・踏實・持續累積</span>
+        <span class="avatar-tag">溫暖・敏捷・持續累積</span>
       </div>
     </div>
   </header>
